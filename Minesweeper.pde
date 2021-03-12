@@ -118,8 +118,8 @@ public void setOneMine() {
  c = (int) (Math.random() * (NUM_COLS-1));
    //System.out.println("Row, Col"+r+","+c);
  if (! isValid(r,c)) {
-     System.out.println ("Invalid Mine Coordinate: "+r+","+c);
-   }
+     //System.out.println ("Invalid Mine Coordinate: "+r+","+c);
+   } 
  else {
      if (! mines.contains(buttons[r][c])) {
           mines.add(buttons[r][c]);
@@ -133,7 +133,7 @@ public void setMines()
 {
 
  int numberOfBombs = NUM_MINES;
- System.out.println ("Set Mines.");
+ //System.out.println ("Set Mines.");
  while (mines.size() < numberOfBombs) {
    setOneMine();
  }
@@ -249,7 +249,7 @@ public void aITileFind() {
 
    //System.out.println("Row, Col"+r+","+c);
  if (! isValid(r,c)) {
-     System.out.println ("Invalid Mine Coordinate: "+r+","+c);
+     //System.out.println ("Invalid Mine Coordinate: "+r+","+c);
    }
  else {
      if (! mines.contains(buttons[r][c]) &&
@@ -295,7 +295,7 @@ public class MSButton
    // called by manager
    public void mousePressed ()
    {
-       System.out.println("Mouse pressed.");
+       //System.out.println("Mouse pressed.");
        if (isLost) {
          displayLosingMessage();
        }
