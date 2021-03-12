@@ -20,7 +20,6 @@ void setup ()
    // make the manager
    Interactive.make( this );
 
-   System.out.println ("Setup.");
    isLost = false;
 
    buttons = new MSButton[NUM_ROWS][NUM_COLS];
@@ -113,12 +112,12 @@ public int countTiles (char c) {
 
 public void setOneMine() {
  int r, c;
- //System.out.println ("Set One Mine.");
+
  r = (int) (Math.random() * (NUM_ROWS-1));
  c = (int) (Math.random() * (NUM_COLS-1));
-   //System.out.println("Row, Col"+r+","+c);
+  
  if (! isValid(r,c)) {
-     System.out.println ("Invalid Mine Coordinate: "+r+","+c);
+     
    }
  else {
      if (! mines.contains(buttons[r][c])) {
@@ -133,7 +132,7 @@ public void setMines()
 {
 
  int numberOfBombs = NUM_MINES;
- System.out.println ("Set Mines.");
+
  while (mines.size() < numberOfBombs) {
    setOneMine();
  }
@@ -151,7 +150,7 @@ public void draw ()
    else {
      if (isLost == true) {
        displayLosingMessage();
-       //System.out.println ("displaying losing message.");
+       
      }
      else {
            // draw all of the tiles
@@ -201,7 +200,7 @@ public void displayWinningMessage()
    textSize(48);
    if ((! cheatMode) &&
        (! usedAI)) {
-     text("You won!",200,300);
+     text("You won!",200,550);
        }
    else {
        text ("Cheating never leads to a victory, sorry.",200,300);
@@ -220,7 +219,7 @@ public boolean isValid(int r, int c)
 }
 
 public void keyPressed () {
- //System.out.println("Key Pressed.");
+ 
  if ((key == 'c') || (key == 'C')) { 
    cheatMode = ! cheatMode;
  }
@@ -246,10 +245,8 @@ public void aITileFind() {
            (! found) &&
            (r < NUM_ROWS) &&
            (c < NUM_COLS)){
-
-   //System.out.println("Row, Col"+r+","+c);
  if (! isValid(r,c)) {
-     System.out.println ("Invalid Mine Coordinate: "+r+","+c);
+ 
    }
  else {
      if (! mines.contains(buttons[r][c]) &&
@@ -295,7 +292,7 @@ public class MSButton
    // called by manager
    public void mousePressed ()
    {
-       System.out.println("Mouse pressed.");
+       
        if (isLost) {
          displayLosingMessage();
        }
@@ -310,7 +307,7 @@ public class MSButton
             flagged = false;
            if (this.isAMine()) {
              isLost = true;
-             System.out.println("isLost: "+isLost);
+            
                }
              }
            else if (mouseButton == RIGHT) {
